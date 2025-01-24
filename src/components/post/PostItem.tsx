@@ -7,6 +7,7 @@ import "dayjs/locale/ja";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/components/ui/Avatar";
+import { useEffect, useState } from "react";
 
 dayjs.extend(relativeTime);
 dayjs.locale("ja");
@@ -20,17 +21,17 @@ type Props = {
 };
 
 export const PostItem = ({ post, replyCount, onReplyClick, className, isClickable = true }: Props) => {
-  const formattedDate = (() => {
+  const [formattedDate, setFormattedDate] = useState(dayjs(post.created_at).format("M月D日"));
+
+  useEffect(() => {
     const date = dayjs(post.created_at);
     const now = dayjs();
     const diffHours = now.diff(date, "hour");
 
     if (diffHours < 24) {
-      return date.fromNow();
-    } else {
-      return date.format("M月D日");
+      setFormattedDate(date.fromNow());
     }
-  })();
+  }, [post.created_at]);
 
   const content = (
     <div className={cn("p-4 hover:bg-app-background-hover transition-colors border-b border-app-border-light", className)}>
