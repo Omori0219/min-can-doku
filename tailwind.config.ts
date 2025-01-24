@@ -11,7 +11,7 @@ export default {
           text: {
             primary: "#004835", // メインテキスト（投稿本文、ドキュメント本文）
             secondary: "#4A5568", // 補足情報（返信数、投稿時間）
-            heading: "#1A202C", // 見出し、タイトル
+            heading: "#004835", // 見出し、タイトル
             muted: "#718096", // より控えめなテキスト
           },
           status: {
@@ -78,7 +78,7 @@ export default {
         },
       },
       fontSize: {
-        "post-body": ["14px", { lineHeight: "1.5" }], // 投稿本文、地域名
+        "post-body": ["15px", { lineHeight: "1.5" }], // 投稿本文、地域名
         "post-caption": ["12px", { lineHeight: "1.5" }], // 日時、返信数
       },
       width: {

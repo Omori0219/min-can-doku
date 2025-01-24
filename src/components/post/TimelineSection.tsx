@@ -13,7 +13,7 @@ export async function TimelineSection() {
 
   return (
     <section className="space-y-4">
-      <h2 className="text-xl font-bold">new 投稿</h2>
+      <h2 className="text-xl font-bold text-app-text-heading">new 投稿</h2>
       <Suspense fallback={<TimelineLoading />}>
         <Timeline posts={posts} replyCount={replyCount} />
       </Suspense>
