@@ -14,9 +14,10 @@ type Props = {
 };
 
 export function PostItem({ post, replyCount, onReplyClick, className, isClickable = true, formattedDate }: Props) {
-  const content = <PostItemBase content={post.content} region={post.region} timestamp={formattedDate} replyCount={replyCount} onClick={onReplyClick} className={className} />;
+  const isReply = !!post.parent_id;
+  const content = <PostItemBase content={post.content} region={post.region} timestamp={formattedDate} replyCount={isReply ? undefined : replyCount} onClick={isReply ? undefined : onReplyClick} className={className} />;
 
-  if (post.parent_id || !isClickable) {
+  if (isReply || !isClickable) {
     return content;
   }
 
