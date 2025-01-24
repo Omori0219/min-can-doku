@@ -1,5 +1,5 @@
 // 地域の型定義
-export type Region = "日本" | "中国" | "台湾" | "香港" | "他";
+export type Region = "日本" | "中国" | "他";
 
 // 投稿データの型定義
 export type Post = {

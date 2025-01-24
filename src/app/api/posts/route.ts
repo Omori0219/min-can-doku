@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createPost, getPosts } from "@/lib/api";
 import { validateContent } from "@/lib/validation";
 
-const VALID_REGIONS = ["日本", "中国", "台湾", "香港", "他"] as const;
+const VALID_REGIONS = ["日本", "中国", "他"] as const;
 
 export async function POST(request: Request) {
   try {
