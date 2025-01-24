@@ -7,9 +7,10 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   onSubmit: (content: string, region: Region) => Promise<{ success: boolean; error?: string }>;
+  parent_id?: string;
 };
 
-export const PostForm = ({ onSubmit }: Props) => {
+export const PostForm = ({ onSubmit, parent_id }: Props) => {
   const router = useRouter();
   const [content, setContent] = useState("");
   const [region, setRegion] = useState<Region>("日本");
@@ -63,7 +64,7 @@ export const PostForm = ({ onSubmit }: Props) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <textarea value={content} onChange={handleContentChange} placeholder="漢字とアルファベットで投稿してください" className="w-full min-h-[100px] p-2 border rounded-md" disabled={isSubmitting} />
+        <textarea value={content} onChange={handleContentChange} placeholder={parent_id ? "返信を入力してください" : "漢字とアルファベットで投稿してください"} className="w-full min-h-[100px] p-2 border rounded-md" disabled={isSubmitting} />
         <div className="text-sm text-gray-500">
           {content.length} / {MAX_CONTENT_LENGTH}文字
         </div>
@@ -89,7 +90,7 @@ export const PostForm = ({ onSubmit }: Props) => {
       </div>
 
       <button type="submit" disabled={isSubmitting || !content || !!error || !isAgreed} className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
-        {isSubmitting ? "投稿中..." : "投稿する"}
+        {isSubmitting ? "投稿中..." : parent_id ? "返信する" : "投稿する"}
       </button>
     </form>
   );
