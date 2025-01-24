@@ -7,10 +7,9 @@ import { useRouter } from "next/navigation";
 
 type Props = {
   onSubmit: (content: string, region: Region) => Promise<{ success: boolean; error?: string }>;
-  parent_id?: string;
 };
 
-export const PostForm = ({ onSubmit, parent_id }: Props) => {
+export const PostForm = ({ onSubmit }: Props) => {
   const router = useRouter();
   const [content, setContent] = useState("");
   const [region, setRegion] = useState<Region>("日本");
@@ -47,7 +46,7 @@ export const PostForm = ({ onSubmit, parent_id }: Props) => {
       } else if (result.error) {
         setError(result.error);
       }
-    } catch (err) {
+    } catch {
       setError("投稿に失敗しました");
     } finally {
       setIsSubmitting(false);

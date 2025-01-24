@@ -1,12 +1,9 @@
-"use client";
-
-import { useState, Suspense } from "react";
+import { Suspense } from "react";
 import { PostForm } from "@/components/post/PostForm";
 import { Timeline } from "@/components/post/Timeline";
-import { Post, Region } from "@/types/post";
-import { useRouter } from "next/navigation";
-import { getPosts, getReplyCount } from "@/lib/api";
+import { Region } from "@/types/post";
 import { TimelineLoading } from "@/components/post/TimelineLoading";
+import { getPosts, getReplyCount } from "@/lib/api";
 
 async function PostTimeline() {
   const posts = await getPosts();
@@ -16,9 +13,6 @@ async function PostTimeline() {
 }
 
 export default function Home() {
-  const router = useRouter();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleSubmit = async (content: string, region: Region) => {
     "use server";
 

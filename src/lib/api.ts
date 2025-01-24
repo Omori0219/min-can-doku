@@ -35,9 +35,9 @@ export const getReplies = async (parentId: string): Promise<Post[]> => {
  * 返信数を取得する
  */
 export const getReplyCount = async (postIds: string[]): Promise<Record<string, number>> => {
-  const { data, error } = await supabase.from("posts").select("parent_id, count").in("parent_id", postIds).count().groupBy("parent_id");
+  const { data, error } = await supabase.from("posts").select("parent_id, count(*)").in("parent_id", postIds).groupBy("parent_id");
 
   if (error) throw error;
 
-  return Object.fromEntries(data.map(({ parent_id, count }) => [parent_id, count]));
+  return Object.fromEntries(data.map(({ parent_id, count }) => [parent_id, Number(count)]));
 };

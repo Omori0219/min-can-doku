@@ -3,6 +3,8 @@ import { createPost, getPosts } from "@/lib/api";
 import { validateContent } from "@/lib/validation";
 import { Region } from "@/types/post";
 
+const VALID_REGIONS = ["日本", "中国", "台湾", "香港", "他"] as const;
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -14,7 +16,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error }, { status: 400 });
     }
 
-    if (!Object.values(Region).includes(region)) {
+    if (!VALID_REGIONS.includes(region)) {
       return NextResponse.json({ error: "無効な地域が指定されています" }, { status: 400 });
     }
 
