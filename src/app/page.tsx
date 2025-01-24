@@ -17,7 +17,8 @@ export default function Home() {
     "use server";
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/posts`, {
+      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+      const response = await fetch(`${baseUrl}/api/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
