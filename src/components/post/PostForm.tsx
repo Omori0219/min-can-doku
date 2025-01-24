@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Region } from "@/types/post";
 import { validateContent, MAX_CONTENT_LENGTH } from "@/lib/validation";
 import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 type Props = {
   onSubmit: (content: string, region: Region) => Promise<{ success: boolean; error?: string }>;
   parent_id?: string;
@@ -86,7 +86,10 @@ export const PostForm = ({ onSubmit, parent_id }: Props) => {
       <div className="flex items-center space-x-2">
         <input type="checkbox" id="agreement" checked={isAgreed} onChange={(e) => setIsAgreed(e.target.checked)} className="rounded" disabled={isSubmitting} />
         <label htmlFor="agreement" className="text-sm">
-          規約 check 済？
+          我 is 同意
+          <Link href="/terms" className="underline text-blue-500 hover:text-blue-600">
+            規約
+          </Link>
         </label>
       </div>
 
