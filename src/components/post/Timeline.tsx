@@ -13,7 +13,7 @@ type Props = {
 
 export function Timeline({ posts, replyCount, onReplyClick, isClickable = true }: Props) {
   if (!posts || posts.length === 0) {
-    return <div className="text-center py-8 text-app-text-secondary">投稿がありません</div>;
+    return <div className="text-center py-8 text-app-text-secondary">nothing 投稿</div>;
   }
 
   return (
