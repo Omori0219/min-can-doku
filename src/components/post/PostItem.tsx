@@ -32,25 +32,31 @@ export const PostItem = ({ post, replyCount, onReplyClick, className, isClickabl
   })();
 
   const content = (
-    <div className={cn("border rounded-lg p-4 space-y-2", isClickable && "hover:bg-gray-50 transition-colors", className)}>
-      <div className="text-lg break-all whitespace-pre-wrap">{post.content}</div>
-      <div className="flex items-center justify-between text-sm text-gray-500">
-        <div className="flex items-center space-x-2">
-          <span>{post.region}</span>
-          <span>•</span>
-          <span>{formattedDate}</span>
+    <div className={cn("border rounded-lg p-4 space-y-2 hover:bg-gray-50 transition-colors", className)}>
+      <div className="flex gap-3">
+        {/* アイコン */}
+        <div className="flex-shrink-0 w-[38px] h-[38px] rounded-full bg-gray-100 flex items-center justify-center">
+          <span className="text-[14px] text-[#0f1419]">{post.region}</span>
         </div>
-        {onReplyClick && (
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              onReplyClick();
-            }}
-            className="hover:text-blue-500 transition-colors"
-          >
-            {replyCount ? `返信 ${replyCount}件` : "返信する"}
-          </button>
-        )}
+
+        {/* 投稿内容 */}
+        <div className="flex-1 min-w-0">
+          <div className="text-[14px] text-[#0f1419] break-all whitespace-pre-wrap">{post.content}</div>
+          <div className="flex items-center gap-4 mt-1">
+            <span className="text-[12px] text-[#536471]">{formattedDate}</span>
+            {onReplyClick && (
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  onReplyClick();
+                }}
+                className="text-[12px] text-[#536471] hover:text-blue-500 transition-colors"
+              >
+                {replyCount ? `返信 ${replyCount}件` : "返信する"}
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
