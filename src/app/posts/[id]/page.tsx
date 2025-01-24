@@ -1,11 +1,11 @@
 import { Suspense } from "react";
-import { PostForm } from "@/components/post/PostForm";
 import { Timeline } from "@/components/post/Timeline";
 import { PostItem } from "@/components/post/PostItem";
 import { TimelineLoading } from "@/components/post/TimelineLoading";
 import { Region } from "@/types/post";
 import { createPost, getReplies } from "@/lib/api";
 import { supabase } from "@/lib/supabase";
+import { ReplyFormSection } from "@/components/post/ReplyFormSection";
 
 async function RepliesTimeline({ postId }: { postId: string }) {
   const replies = await getReplies(postId);
@@ -43,16 +43,13 @@ export default async function PostPage({ params }: { params: { id: string } }) {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold">返信する</h2>
-        <PostForm onSubmit={handleSubmit} parent_id={resolvedParams.id} />
-      </section>
-
-      <section className="space-y-4">
         <h2 className="text-xl font-bold">返信一覧</h2>
         <Suspense fallback={<TimelineLoading />}>
           <RepliesTimeline postId={resolvedParams.id} />
         </Suspense>
       </section>
+
+      <ReplyFormSection onSubmit={handleSubmit} parent_id={resolvedParams.id} />
     </div>
   );
 }
