@@ -22,7 +22,7 @@ export default function Loading() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold">返信一覧</h2>
+        <h2 className="text-xl font-bold">list 返信</h2>
         <TimelineLoading />
       </section>
     </div>
