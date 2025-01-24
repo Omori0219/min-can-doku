@@ -15,12 +15,12 @@ export async function createPostAction(content: string, region: Region) {
 
     if (!response.ok) {
       const data = await response.json();
-      throw new Error(data.error || "投稿に失敗しました");
+      throw new Error(data.error || "投稿 failed");
     }
 
     return { success: true };
   } catch (error) {
     console.error("投稿エラー:", error);
-    return { success: false, error: "投稿に失敗しました" };
+    return { success: false, error: "投稿 failed" };
   }
 }

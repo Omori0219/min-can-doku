@@ -13,7 +13,7 @@ export async function GET(request: Request) {
     const replyCount = await getReplyCount(postIds);
     return NextResponse.json(replyCount);
   } catch (error) {
-    console.error("返信数取得エラー:", error);
-    return NextResponse.json({ error: "返信数の取得に失敗しました" }, { status: 500 });
+    console.error("get 返信 count error:", error);
+    return NextResponse.json({ error: "get 返信 count error" }, { status: 500 });
   }
 }

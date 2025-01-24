@@ -32,8 +32,8 @@ export default async function PostPage({ params }: { params: Promise<{ id: strin
       await createPost({ content, region, parent_id: resolvedParams.id });
       return { success: true };
     } catch (error) {
-      console.error("返信エラー:", error);
-      return { success: false, error: "返信に失敗しました" };
+      console.error("返信 error:", error);
+      return { success: false, error: "返信 error" };
     }
   };
 
@@ -44,7 +44,7 @@ export default async function PostPage({ params }: { params: Promise<{ id: strin
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-xl font-bold">返信一覧</h2>
+        <h2 className="text-xl font-bold">返信 list</h2>
         <Suspense fallback={<TimelineLoading />}>
           <RepliesTimeline postId={resolvedParams.id} />
         </Suspense>

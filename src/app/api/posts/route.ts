@@ -23,8 +23,8 @@ export async function POST(request: Request) {
     const post = await createPost({ content, region, parent_id });
     return NextResponse.json(post);
   } catch (error) {
-    console.error("投稿作成エラー:", error);
-    return NextResponse.json({ error: "投稿の作成に失敗しました" }, { status: 500 });
+    console.error("post 投稿 error:", error);
+    return NextResponse.json({ error: "post 投稿 error" }, { status: 500 });
   }
 }
 
@@ -33,7 +33,7 @@ export async function GET() {
     const posts = await getPosts();
     return NextResponse.json(posts);
   } catch (error) {
-    console.error("投稿取得エラー:", error);
-    return NextResponse.json({ error: "投稿の取得に失敗しました" }, { status: 500 });
+    console.error("get 投稿 error:", error);
+    return NextResponse.json({ error: "get 投稿 error" }, { status: 500 });
   }
 }

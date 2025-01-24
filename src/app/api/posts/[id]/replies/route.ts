@@ -9,7 +9,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const replies = await getReplies(id);
     return NextResponse.json(replies);
   } catch (error) {
-    console.error("返信の取得エラー:", error);
-    return NextResponse.json({ error: "返信の取得に失敗しました" }, { status: 500 });
+    console.error("get 返信 error:", error);
+    return NextResponse.json({ error: "get 返信 error" }, { status: 500 });
   }
 }
