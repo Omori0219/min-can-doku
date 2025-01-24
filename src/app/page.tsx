@@ -1,8 +1,11 @@
-import { Suspense } from "react";
-import { PostForm } from "@/components/post/PostForm";
+"use client";
+
+import { Suspense, useState } from "react";
 import { Timeline } from "@/components/post/Timeline";
 import { Region } from "@/types/post";
 import { TimelineLoading } from "@/components/post/TimelineLoading";
+import { FloatingActionButton } from "@/components/post/FloatingActionButton";
+import { PostFormModal } from "@/components/post/PostFormModal";
 import { getPosts, getReplyCount } from "@/lib/api";
 
 async function PostTimeline() {
@@ -13,6 +16,8 @@ async function PostTimeline() {
 }
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleSubmit = async (content: string, region: Region) => {
     "use server";
 
@@ -39,18 +44,18 @@ export default function Home() {
   };
 
   return (
-    <div className="space-y-8">
-      <section className="space-y-4">
-        <h1 className="text-2xl font-bold">新規投稿</h1>
-        <PostForm onSubmit={handleSubmit} />
-      </section>
+    <>
+      <div className="space-y-8">
+        <section className="space-y-4">
+          <h2 className="text-xl font-bold">最新の投稿</h2>
+          <Suspense fallback={<TimelineLoading />}>
+            <PostTimeline />
+          </Suspense>
+        </section>
+      </div>
 
-      <section className="space-y-4">
-        <h2 className="text-xl font-bold">最新の投稿</h2>
-        <Suspense fallback={<TimelineLoading />}>
-          <PostTimeline />
-        </Suspense>
-      </section>
-    </div>
+      <FloatingActionButton onClick={() => setIsModalOpen(true)} />
+      <PostFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={handleSubmit} />
+    </>
   );
 }
