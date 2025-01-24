@@ -16,7 +16,7 @@ export function ReplyFormSection({ onSubmit, parent_id }: Props) {
   return (
     <>
       <ReplyFloatingActionButton onClick={() => setIsModalOpen(true)} />
-      <PostFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={onSubmit} />
+      <PostFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={onSubmit} parent_id={parent_id} />
     </>
   );
 }

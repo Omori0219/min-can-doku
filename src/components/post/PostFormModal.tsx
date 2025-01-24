@@ -8,9 +8,10 @@ type Props = {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (content: string, region: Region) => Promise<{ success: boolean; error?: string }>;
+  parent_id?: string;
 };
 
-export const PostFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
+export const PostFormModal = ({ isOpen, onClose, onSubmit, parent_id }: Props) => {
   if (!isOpen) return null;
 
   return (
@@ -35,6 +36,7 @@ export const PostFormModal = ({ isOpen, onClose, onSubmit }: Props) => {
               }
               return result;
             }}
+            parent_id={parent_id}
           />
         </div>
       </div>
