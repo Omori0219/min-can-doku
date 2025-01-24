@@ -12,8 +12,8 @@ export async function TimelineSection() {
   const replyCount = posts.length > 0 ? await getReplyCount(posts.map((p) => p.id)) : {};
 
   return (
-    <section className="space-y-4">
-      <h2 className="text-xl font-bold text-app-text-heading">new 投稿</h2>
+    <section>
+      <h2 className="text-xl font-bold text-app-text-heading mb-4">new 投稿</h2>
       <Suspense fallback={<TimelineLoading />}>
         <Timeline posts={posts} replyCount={replyCount} />
       </Suspense>
