@@ -1,19 +1,11 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import { Timeline } from "@/components/post/Timeline";
 import { TimelineLoading } from "@/components/post/TimelineLoading";
 import { FloatingActionButton } from "@/components/post/FloatingActionButton";
 import { PostFormModal } from "@/components/post/PostFormModal";
-import { getPosts, getReplyCount } from "@/lib/api";
 import { createPostAction } from "./actions";
-
-async function PostTimeline() {
-  const posts = await getPosts();
-  const replyCount = posts.length > 0 ? await getReplyCount(posts.map((p) => p.id)) : {};
-
-  return <Timeline posts={posts} replyCount={replyCount} />;
-}
+import { PostTimeline } from "@/components/post/PostTimeline";
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
