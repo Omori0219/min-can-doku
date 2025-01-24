@@ -16,12 +16,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <div className="relative min-h-screen">
           <Header />
-          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-[1fr,min(598px,100%),1fr] gap-4">
+          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-[1fr,min(598px,100%),1fr]">
             {/* 左サイドバー */}
             <div className="hidden lg:block" />
 
             {/* メインコンテンツ */}
-            <main className="w-full max-w-[598px] mx-auto py-4 px-4 lg:px-0 lg:border-x lg:border-gray-100">{children}</main>
+            <div className="relative w-full">
+              <div className="absolute inset-y-0 -left-px w-px bg-gray-100" />
+              <div className="absolute inset-y-0 -right-px w-px bg-gray-100" />
+              <main className="w-full max-w-[598px] mx-auto py-4 px-4 lg:px-0">{children}</main>
+            </div>
 
             {/* 右サイドバー */}
             <div className="hidden lg:block" />

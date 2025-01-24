@@ -32,7 +32,7 @@ export const PostItem = ({ post, replyCount, onReplyClick, className, isClickabl
   })();
 
   const content = (
-    <div className={cn("border-b p-4 hover:bg-gray-50 transition-colors", className)}>
+    <div className={cn("p-4 hover:bg-gray-50 transition-colors border-b border-gray-50", className)}>
       <div className="flex gap-3">
         {/* アイコン */}
         <div className="flex-shrink-0 w-[38px] h-[38px] rounded-full bg-gray-100 flex items-center justify-center">
