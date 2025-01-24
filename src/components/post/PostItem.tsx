@@ -6,6 +6,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ja";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Avatar } from "@/components/ui/Avatar";
 
 dayjs.extend(relativeTime);
 dayjs.locale("ja");
@@ -35,9 +36,7 @@ export const PostItem = ({ post, replyCount, onReplyClick, className, isClickabl
     <div className={cn("p-4 hover:bg-gray-50 transition-colors border-b border-gray-50", className)}>
       <div className="flex gap-3">
         {/* アイコン */}
-        <div className="flex-shrink-0 w-[38px] h-[38px] rounded-full bg-gray-100 flex items-center justify-center">
-          <span className="text-[14px] text-[#0f1419]">{post.region}</span>
-        </div>
+        <Avatar region={post.region} />
 
         {/* 投稿内容 */}
         <div className="flex-1 min-w-0">
