@@ -1,22 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "LXGW WenKai TC";
-  src: url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.1.0/dist/LXGWWenKaiTC-Regular.woff2") format("woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "LXGW WenKai TC";
-  src: url("https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.1.0/dist/LXGWWenKaiTC-Bold.woff2") format("woff2");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
+/* body {
+  font-family: "LXGW WenKai TC", Arial, Helvetica, sans-serif;
+} */
 
 @layer base {
   :root {
