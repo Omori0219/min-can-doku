@@ -64,12 +64,12 @@ export const PostForm = ({ onSubmit, parent_id }: Props) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <textarea value={content} onChange={handleContentChange} placeholder={parent_id ? "返信を入力してください" : "漢字とアルファベットで投稿してください"} className="w-full min-h-[100px] p-2 border rounded-md" disabled={isSubmitting} />
+        <textarea value={content} onChange={handleContentChange} placeholder={parent_id ? "do 返信" : "can 使用：漢字or英字or記号"} className="w-full min-h-[100px] p-2 border rounded-md" disabled={isSubmitting} />
         <div className="text-sm text-gray-500">
-          {content.length} / {MAX_CONTENT_LENGTH}文字
+          {content.length} / {MAX_CONTENT_LENGTH}字
         </div>
         {error && <div className="text-sm text-red-500">{error}</div>}
-        {showSuccess && <div className="text-sm text-green-500">投稿が完了しました</div>}
+        {showSuccess && <div className="text-sm text-green-500">done 投稿</div>}
       </div>
 
       <div className="space-y-2">
@@ -83,12 +83,12 @@ export const PostForm = ({ onSubmit, parent_id }: Props) => {
       <div className="flex items-center space-x-2">
         <input type="checkbox" id="agreement" checked={isAgreed} onChange={(e) => setIsAgreed(e.target.checked)} className="rounded" disabled={isSubmitting} />
         <label htmlFor="agreement" className="text-sm">
-          利用規約に同意する
+          規約 check 済？
         </label>
       </div>
 
       <button type="submit" disabled={isSubmitting || !content || !!error || !isAgreed} className="w-full py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed">
-        {isSubmitting ? "投稿中..." : parent_id ? "返信する" : "投稿する"}
+        {isSubmitting ? "now 投稿ing..." : parent_id ? "do 返信" : "do 投稿"}
       </button>
     </form>
   );
