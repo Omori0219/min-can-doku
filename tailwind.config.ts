@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -65,10 +66,8 @@ export default {
         },
       },
       fontSize: {
-        post: {
-          body: "14px", // 投稿本文、地域名
-          caption: "12px", // 日時、返信数
-        },
+        "post-body": ["14px", { lineHeight: "1.5" }], // 投稿本文、地域名
+        "post-caption": ["12px", { lineHeight: "1.5" }], // 日時、返信数
       },
       width: {
         icon: "38px", // アイコンサイズ
@@ -83,5 +82,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 } satisfies Config;
