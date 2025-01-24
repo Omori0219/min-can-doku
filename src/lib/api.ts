@@ -14,17 +14,16 @@ export const createPost = async (input: CreatePostInput): Promise<Post> => {
 /**
  * 投稿一覧を取得する
  */
-export const getPosts = async (limit = 20): Promise<Post[]> => {
-  const { data, error } = await supabase
-    .from("posts")
-    .select()
-    .is("parent_id", null)
-    .order("created_at", { ascending: false })
-    .range(0, limit - 1);
+export async function getPosts() {
+  const { data, error } = await supabase.from("posts").select().is("parent_id", null).order("created_at", { ascending: false }).limit(20).returns<Post[]>();
 
-  if (error) throw error;
-  return data || [];
-};
+  if (error) {
+    console.error("投稿取得エラー:", error);
+    return [];
+  }
+
+  return data;
+}
 
 /**
  * 返信を取得する
@@ -39,18 +38,20 @@ export const getReplies = async (parentId: string): Promise<Post[]> => {
 /**
  * 返信数を取得する
  */
-export const getReplyCount = async (postIds: string[]): Promise<Record<string, number>> => {
-  const { data, error } = await supabase.from("posts").select("parent_id").in("parent_id", postIds);
+export async function getReplyCount(postIds: string[]) {
+  const { data, error } = await supabase.from("posts").select("parent_id").in("parent_id", postIds).returns<{ parent_id: string }[]>();
 
-  if (error) throw error;
+  if (error) {
+    console.error("返信数取得エラー:", error);
+    return {};
+  }
 
-  const counts = (data || []).reduce<Record<string, number>>((acc, { parent_id }) => {
-    if (parent_id) {
-      acc[parent_id] = (acc[parent_id] || 0) + 1;
-    }
+  const counts = data.reduce<Record<string, number>>((acc, { parent_id }) => {
+    acc[parent_id] = (acc[parent_id] || 0) + 1;
     return acc;
   }, {});
 
+  // 返信が0件の投稿のために、すべてのpostIdsに対してcountsを初期化
   postIds.forEach((id) => {
     if (!(id in counts)) {
       counts[id] = 0;
@@ -58,4 +59,4 @@ export const getReplyCount = async (postIds: string[]): Promise<Record<string, n
   });
 
   return counts;
-};
+}
