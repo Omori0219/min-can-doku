@@ -1,5 +1,5 @@
 // 許可する文字のパターン
-const ALLOWED_CHARS_PATTERN = /^[一-龯㐀-䶵一-鿕豈-頻並-龎a-zA-Z0-9!?.,;:()\[\]{}<>+\-*/%&#@$、。〃〄々〆〇〡-〩〸-〻㍐-㍗㎀-㏿\s]+$/;
+const ALLOWED_CHARS_PATTERN = /^[一-龯㐀-䶵一-鿕豈-頻並-龎a-zA-Z0-9!?.,;:()\[\]{}<>+\-*/%&#@$、。〃〄々〆〇〡-〩〸-〻㍐-㍗㎀-㏿！？．，；：（）［］｛｝＜＞＋－＊／％＆＃＠＄\s]+$/;
 
 // 最大文字数
 export const MAX_CONTENT_LENGTH = 140;
@@ -19,7 +19,7 @@ export const validateContent = (content: string): string | null => {
   }
 
   if (!ALLOWED_CHARS_PATTERN.test(content)) {
-    return "漢字、アルファベット、基本的な記号のみ使用できます";
+    return "漢字、アルファベット、記号のみ使用できます";
   }
 
   return null;
