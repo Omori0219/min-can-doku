@@ -9,19 +9,31 @@ export default {
       colors: {
         app: {
           text: {
-            primary: "#0f1419", // 投稿本文、地域名
-            secondary: "#536471", // 日時、返信数
+            primary: "#004835", // メインテキスト（投稿本文、ドキュメント本文）
+            secondary: "#4A5568", // 補足情報（返信数、投稿時間）
+            heading: "#1A202C", // 見出し、タイトル
+            muted: "#718096", // より控えめなテキスト
           },
-          background: {
-            hover: "#f7f9f9", // ホバー時
-            icon: "#f7f7f7", // アイコン背景
-          },
-          border: {
-            light: "#eff3f4", // 投稿の区切り線
+          status: {
+            success: "#48BB78", // 成功
+            warning: "#ECC94B", // 警告
+            error: "#F56565", // エラー
+            info: "#4299E1", // 情報
           },
           action: {
-            primary: "#3b82f6", // FABの背景
-            hover: "#2563eb", // FABのホバー時
+            primary: "#004835", // メインのアクション
+            hover: "#006347", // ホバー時
+            disabled: "#A0AEC0", // 無効時
+          },
+          background: {
+            base: "#FFFFFF", // 基本の背景色
+            hover: "#F7FAFC", // ホバー時の背景色
+            muted: "#EDF2F7", // より控えめな背景色
+            icon: "#E2E8F0", // アイコン背景
+          },
+          border: {
+            light: "#E2E8F0", // 軽いボーダー
+            strong: "#CBD5E0", // 強調ボーダー
           },
         },
         background: "hsl(var(--background))",
