@@ -16,7 +16,7 @@ type BaseProps = {
   renderWrapper?: (children: React.ReactNode) => React.ReactNode;
 };
 
-export function PostItemBase({ content, region, timestamp, replyCount, replyLabel = "返信", noPostsLabel = "投稿がありません", isLoading, className, onClick, renderWrapper = (children) => children }: BaseProps) {
+export function PostItemBase({ content, region, timestamp, replyCount, replyLabel = "返信", noPostsLabel = "nothing 投稿", isLoading, className, onClick, renderWrapper = (children) => children }: BaseProps) {
   if (isLoading) {
     return renderWrapper(
       <div className={cn("p-4 border rounded-lg animate-pulse", className)}>
@@ -53,7 +53,7 @@ export function PostItemBase({ content, region, timestamp, replyCount, replyLabe
 
           {/* 投稿内容 */}
           <div className="flex-1 min-w-0">
-            <div className="text-post-body text-app-text-primary break-all whitespace-pre-wrap">{content}</div>
+            <div className="text-post-body text-app-text-primary break-all whitespace-pre-wrap">{content || <span className="italic">{noPostsLabel}</span>}</div>
             <div className="flex items-center gap-4 mt-1">
               <span className="text-post-caption text-app-text-secondary">{timestamp}</span>
               {replyCount !== undefined && (
