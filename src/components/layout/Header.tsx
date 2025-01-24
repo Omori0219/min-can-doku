@@ -9,6 +9,9 @@ export const Header = () => {
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold">皆can読</span>
           </Link>
+          <Link href="/terms" className="text-gray-500 hover:text-gray-700 ml-4">
+            規約
+          </Link>
         </div>
         <div className="hidden lg:block" />
       </div>
