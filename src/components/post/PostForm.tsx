@@ -28,7 +28,7 @@ export const PostForm = ({ onSubmit, parent_id }: Props) => {
     }
 
     if (!isAgreed) {
-      setError("利用規約に同意してください");
+      setError("please 規約 check");
       return;
     }
 
@@ -48,7 +48,7 @@ export const PostForm = ({ onSubmit, parent_id }: Props) => {
         setError(result.error);
       }
     } catch {
-      setError("投稿に失敗しました");
+      setError("投稿 failed");
     } finally {
       setIsSubmitting(false);
     }
