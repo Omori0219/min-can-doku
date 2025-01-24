@@ -51,5 +51,9 @@ export function PostItem({ post, replyCount, onReplyClick, className, isClickabl
     return content;
   }
 
-  return <Link href={`/posts/${post.id}`}>{content}</Link>;
+  return (
+    <Link href={`/posts/${post.id}`} className="block">
+      {content}
+    </Link>
+  );
 }
