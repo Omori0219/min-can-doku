@@ -4,7 +4,7 @@ export default function Loading() {
   return (
     <div className="space-y-8">
       <section>
-        <div className="p-4 border-b border-app-border-light animate-pulse">
+        <div className="p-2 animate-pulse">
           <div className="flex gap-3">
             <div className="flex-shrink-0 w-icon h-icon rounded-full bg-app-background-icon" />
             <div className="flex-1 min-w-0 space-y-2">

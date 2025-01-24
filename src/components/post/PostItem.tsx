@@ -16,7 +16,7 @@ type Props = {
 
 export function PostItem({ post, replyCount, onReplyClick, className, isClickable = true, formattedDate }: Props) {
   const content = (
-    <div className={cn("p-4 border-b border-app-border-light", isClickable && "hover:bg-app-background-hover transition-colors", className)}>
+    <div className={cn("p-2", isClickable && "hover:bg-app-background-hover transition-colors", className)}>
       <div className="space-y-2">
         <div className="flex gap-3">
           {/* アイコン */}

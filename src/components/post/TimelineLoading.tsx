@@ -2,7 +2,7 @@ export const TimelineLoading = () => {
   return (
     <div>
       {[...Array(5)].map((_, i) => (
-        <div key={i} className="p-4 border-b border-app-border-light animate-pulse">
+        <div key={i} className="p-2 animate-pulse">
           <div className="flex gap-3">
             {/* アイコンのスケルトン */}
             <div className="flex-shrink-0 w-icon h-icon rounded-full bg-app-background-icon" />
