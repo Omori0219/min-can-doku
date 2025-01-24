@@ -43,7 +43,7 @@ export const PostItem = ({ post, replyCount, onReplyClick, className, isClickabl
           <div className="text-post-body text-app-text-primary break-all whitespace-pre-wrap">{post.content}</div>
           <div className="flex items-center gap-4 mt-1">
             <span className="text-post-caption text-app-text-secondary">{formattedDate}</span>
-            {onReplyClick && (
+            {onReplyClick ? (
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -51,8 +51,10 @@ export const PostItem = ({ post, replyCount, onReplyClick, className, isClickabl
                 }}
                 className="text-post-caption text-app-text-secondary hover:text-app-action-primary transition-colors"
               >
-                {replyCount ? `返信 ${replyCount}件` : "返信する"}
+                返信する
               </button>
+            ) : (
+              replyCount !== undefined && <span className="text-post-caption text-app-text-secondary">返信 {replyCount}件</span>
             )}
           </div>
         </div>
