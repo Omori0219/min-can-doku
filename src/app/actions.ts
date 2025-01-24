@@ -10,6 +10,7 @@ export async function createPostAction(content: string, region: Region) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ content, region }),
+      cache: "no-store",
     });
 
     if (!response.ok) {
