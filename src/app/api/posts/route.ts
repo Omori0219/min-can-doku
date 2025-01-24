@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { createPost, getPosts } from "@/lib/api";
 import { validateContent } from "@/lib/validation";
-import { Region } from "@/types/post";
 
 const VALID_REGIONS = ["日本", "中国", "台湾", "香港", "他"] as const;
 
@@ -29,12 +28,9 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const { searchParams } = new URL(request.url);
-    const limit = Number(searchParams.get("limit")) || 20;
-
-    const posts = await getPosts(limit);
+    const posts = await getPosts();
     return NextResponse.json(posts);
   } catch (error) {
     console.error("投稿取得エラー:", error);
