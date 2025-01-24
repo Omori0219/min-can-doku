@@ -3,6 +3,7 @@
 import { X } from "lucide-react";
 import { PostForm } from "./PostForm";
 import { Region } from "@/types/post";
+import Link from "next/link";
 
 type Props = {
   isOpen: boolean;
@@ -38,6 +39,12 @@ export const PostFormModal = ({ isOpen, onClose, onSubmit, parent_id }: Props) =
             }}
             parent_id={parent_id}
           />
+          <p className="text-sm text-gray-500">
+            <Link href="/terms" className="underline hover:text-gray-700">
+              規約
+            </Link>
+            に同意の上、投稿してください
+          </p>
         </div>
       </div>
     </div>
