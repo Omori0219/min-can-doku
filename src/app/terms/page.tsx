@@ -56,7 +56,7 @@ export default function TermsPage() {
           <>
             <section>
               <h2 className="text-xl font-semibold mb-3">1. 序言</h2>
-              <p className="text-gray-700">本使用条款规定了"皆can读"的使用条件。 用户在使用本服务时，请确认同意本条款。</p>
+              <p className="text-gray-700">本使用条款规定了&quot;皆can读&quot;的使用条件。 用户在使用本服务时，请确认同意本条款。</p>
             </section>
 
             <section>
