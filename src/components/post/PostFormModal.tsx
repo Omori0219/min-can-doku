@@ -22,8 +22,8 @@ export const PostFormModal = ({ isOpen, onClose, onSubmit, parent_id }: Props) =
       {/* モーダルコンテンツ */}
       <div className="relative w-full max-w-[598px] mx-4 bg-white rounded-lg shadow-xl">
         <div className="flex items-center justify-between p-4 border-b">
-          <h2 className="text-xl font-bold">{parent_id ? "返信を作成" : "投稿を作成"}</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors" aria-label="閉じる">
+          <h2 className="text-xl font-bold">{parent_id ? "create 返信" : "create 投稿"}</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors" aria-label="close">
             <X className="w-6 h-6" />
           </button>
         </div>
