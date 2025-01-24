@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "MIN CAN DOKU",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="relative min-h-screen">
           <Header />
           <main className="container mx-auto max-w-2xl px-4 py-8">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
