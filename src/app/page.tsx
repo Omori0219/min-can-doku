@@ -1,28 +1,13 @@
-"use client";
-
-import { Suspense, useState } from "react";
-import { TimelineLoading } from "@/components/post/TimelineLoading";
-import { FloatingActionButton } from "@/components/post/FloatingActionButton";
-import { PostFormModal } from "@/components/post/PostFormModal";
-import { createPostAction } from "./actions";
-import { PostTimeline } from "@/components/post/PostTimeline";
+import { TimelineSection } from "@/components/post/TimelineSection";
+import { PostFormSection } from "@/components/post/PostFormSection";
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <>
       <div className="space-y-8">
-        <section className="space-y-4">
-          <h2 className="text-xl font-bold">最新の投稿</h2>
-          <Suspense fallback={<TimelineLoading />}>
-            <PostTimeline />
-          </Suspense>
-        </section>
+        <TimelineSection />
       </div>
-
-      <FloatingActionButton onClick={() => setIsModalOpen(true)} />
-      <PostFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSubmit={createPostAction} />
+      <PostFormSection />
     </>
   );
 }
