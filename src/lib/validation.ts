@@ -11,15 +11,15 @@ export const MAX_CONTENT_LENGTH = 140;
  */
 export const validateContent = (content: string): string | null => {
   if (!content) {
-    return "投稿内容を入力してください";
+    return "please 記述";
   }
 
   if (content.length > MAX_CONTENT_LENGTH) {
-    return `投稿内容は${MAX_CONTENT_LENGTH}文字以内で入力してください`;
+    return `please 縮小 for${MAX_CONTENT_LENGTH}字`;
   }
 
   if (!ALLOWED_CHARS_PATTERN.test(content)) {
-    return "漢字、アルファベット、記号のみ使用できます";
+    return "can 使用：漢字or英字or記号";
   }
 
   return null;
