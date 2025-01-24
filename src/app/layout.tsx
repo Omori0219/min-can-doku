@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="hidden lg:block" />
 
             {/* メインコンテンツ */}
-            <main className="w-full max-w-[598px] mx-auto py-4 px-4 lg:px-0">{children}</main>
+            <main className="w-full max-w-[598px] mx-auto py-4 px-4 lg:px-0 lg:border-x lg:border-gray-100">{children}</main>
 
             {/* 右サイドバー */}
             <div className="hidden lg:block" />
