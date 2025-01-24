@@ -17,7 +17,7 @@ export function Timeline({ posts, replyCount, onReplyClick, isClickable = true }
   }
 
   return (
-    <div className="divide-y divide-app-border-light">
+    <div className="space-y-4">
       {posts.map((post) => (
         <PostItem key={post.id} post={post} replyCount={replyCount?.[post.id]} onReplyClick={onReplyClick ? () => onReplyClick(post) : undefined} isClickable={isClickable} formattedDate={formatDate(post.created_at)} />
       ))}

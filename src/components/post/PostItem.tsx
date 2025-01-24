@@ -16,7 +16,7 @@ type Props = {
 
 export function PostItem({ post, replyCount, onReplyClick, className, isClickable = true, formattedDate }: Props) {
   const content = (
-    <div className={cn("p-2", isClickable && "hover:bg-app-background-hover transition-colors", className)}>
+    <div className={cn("p-4 border rounded-lg", isClickable && "hover:bg-app-background-hover transition-colors", className)}>
       <div className="space-y-2">
         <div className="flex gap-3">
           {/* アイコン */}
@@ -51,17 +51,5 @@ export function PostItem({ post, replyCount, onReplyClick, className, isClickabl
     return content;
   }
 
-  return (
-    <Link
-      href={`/posts/${post.id}`}
-      className={`block rounded-lg border p-4 ${isClickable ? "hover:bg-gray-50" : ""}`}
-      onClick={(e) => {
-        if (!isClickable) {
-          e.preventDefault();
-        }
-      }}
-    >
-      {content}
-    </Link>
-  );
+  return <Link href={`/posts/${post.id}`}>{content}</Link>;
 }
