@@ -3,8 +3,8 @@ import { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 
 export const metadata: Metadata = {
-  title: "MIN CAN DOKU",
-  description: "みんなで楽しく読書の感想を共有しよう！",
+  title: "皆can読",
+  description: "皆can読 is 模索 場所 for new 話 way to 日本人 and 中文民",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
