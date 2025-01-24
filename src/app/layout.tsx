@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <div className="relative min-h-screen">
           <Header />
-          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-[1fr,min(598px,100%),1fr]">
+          <div className="container mx-auto min-h-[calc(100vh-3.5rem)] grid grid-cols-1 lg:grid-cols-[1fr,min(598px,100%),1fr]">
             {/* 左サイドバー */}
             <div className="hidden lg:block" />
 
