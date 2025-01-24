@@ -10,5 +10,7 @@ type Props = {
 };
 
 export const Avatar = ({ region, imageUrl, className }: Props) => {
-  return <div className={cn("flex-shrink-0 w-[38px] h-[38px] rounded-full bg-gray-100 flex items-center justify-center overflow-hidden", className)}>{imageUrl ? <Image src={imageUrl} alt={`${region}のアバター`} width={38} height={38} className="object-cover" loading="lazy" /> : <span className="text-[14px] text-[#0f1419]">{region}</span>}</div>;
+  return (
+    <div className={cn("flex-shrink-0 w-icon h-icon rounded-full bg-app-background-icon flex items-center justify-center overflow-hidden", className)}>{imageUrl ? <Image src={imageUrl} alt={`${region}のアバター`} width={38} height={38} className="object-cover" loading="lazy" /> : <span className="text-post-body text-app-text-primary">{region}</span>}</div>
+  );
 };

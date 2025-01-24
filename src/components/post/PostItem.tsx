@@ -33,23 +33,23 @@ export const PostItem = ({ post, replyCount, onReplyClick, className, isClickabl
   })();
 
   const content = (
-    <div className={cn("p-4 hover:bg-gray-50 transition-colors border-b border-gray-50", className)}>
+    <div className={cn("p-4 hover:bg-app-background-hover transition-colors border-b border-app-border-light", className)}>
       <div className="flex gap-3">
         {/* アイコン */}
         <Avatar region={post.region} />
 
         {/* 投稿内容 */}
         <div className="flex-1 min-w-0">
-          <div className="text-[14px] text-[#0f1419] break-all whitespace-pre-wrap">{post.content}</div>
+          <div className="text-post-body text-app-text-primary break-all whitespace-pre-wrap">{post.content}</div>
           <div className="flex items-center gap-4 mt-1">
-            <span className="text-[12px] text-[#536471]">{formattedDate}</span>
+            <span className="text-post-caption text-app-text-secondary">{formattedDate}</span>
             {onReplyClick && (
               <button
                 onClick={(e) => {
                   e.preventDefault();
                   onReplyClick();
                 }}
-                className="text-[12px] text-[#536471] hover:text-blue-500 transition-colors"
+                className="text-post-caption text-app-text-secondary hover:text-app-action-primary transition-colors"
               >
                 {replyCount ? `返信 ${replyCount}件` : "返信する"}
               </button>
