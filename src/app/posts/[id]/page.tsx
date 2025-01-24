@@ -12,7 +12,7 @@ async function RepliesTimeline({ postId }: { postId: string }) {
   return <Timeline posts={replies} isClickable={false} />;
 }
 
-export default async function PostPage({ params }: { params: { id: string } }) {
+export default async function PostPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
   const { data: post } = await supabase.from("posts").select().eq("id", resolvedParams.id).single();
 
