@@ -73,7 +73,10 @@ export const PostForm = ({ onSubmit, parent_id }: Props) => {
       </div>
 
       <div className="space-y-2">
-        <select value={region} onChange={(e) => setRegion(e.target.value as Region)} className="w-full p-2 border rounded-md" disabled={isSubmitting}>
+        <label htmlFor="region" className="block text-sm font-medium text-app-text-primary">
+          地域
+        </label>
+        <select id="region" value={region} onChange={(e) => setRegion(e.target.value as Region)} className="w-full p-2 border rounded-md" disabled={isSubmitting}>
           <option value="日本">日本</option>
           <option value="中国">中国</option>
           <option value="他">他</option>
