@@ -9,10 +9,10 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
       <p className="text-gray-500">{error.message}</p>
       <div className="flex space-x-4">
         <button onClick={reset} className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
-          もう一度試す
+          試 again
         </button>
         <Link href="/" className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600">
-          トップページに戻る
+          back 拠点
         </Link>
       </div>
     </div>
