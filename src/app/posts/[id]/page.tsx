@@ -9,7 +9,7 @@ import { supabase } from "@/lib/supabase";
 
 async function RepliesTimeline({ postId }: { postId: string }) {
   const replies = await getReplies(postId);
-  return <Timeline posts={replies} />;
+  return <Timeline posts={replies} isClickable={false} />;
 }
 
 export default async function PostPage({ params }: { params: { id: string } }) {
@@ -38,7 +38,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
   return (
     <div className="space-y-8">
       <section>
-        <PostItem post={post} />
+        <PostItem post={post} isClickable={false} />
       </section>
 
       <section className="space-y-4">

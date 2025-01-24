@@ -15,9 +15,10 @@ type Props = {
   replyCount?: number;
   onReplyClick?: () => void;
   className?: string;
+  isClickable?: boolean;
 };
 
-export const PostItem = ({ post, replyCount, onReplyClick, className }: Props) => {
+export const PostItem = ({ post, replyCount, onReplyClick, className, isClickable = true }: Props) => {
   const formattedDate = (() => {
     const date = dayjs(post.created_at);
     const now = dayjs();
@@ -31,7 +32,7 @@ export const PostItem = ({ post, replyCount, onReplyClick, className }: Props) =
   })();
 
   const content = (
-    <div className={cn("border rounded-lg p-4 space-y-2 hover:bg-gray-50 transition-colors", className)}>
+    <div className={cn("border rounded-lg p-4 space-y-2", isClickable && "hover:bg-gray-50 transition-colors", className)}>
       <div className="text-lg break-all whitespace-pre-wrap">{post.content}</div>
       <div className="flex items-center justify-between text-sm text-gray-500">
         <div className="flex items-center space-x-2">
@@ -54,7 +55,7 @@ export const PostItem = ({ post, replyCount, onReplyClick, className }: Props) =
     </div>
   );
 
-  if (post.parent_id) {
+  if (post.parent_id || !isClickable) {
     return content;
   }
 
